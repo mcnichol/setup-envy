@@ -33,6 +33,9 @@ docker-compose -v
 sudo apt-get -y install git
 git config --global user.name "McNichol"
 git config --global user.email mcnichol.m@gmail.com
+git config --global core.editor "vim"
+
+sudo apt-get -y install tig
 
 sudo apt-get -y install tmux
 cp tmux.conf ~/.tmux.conf
