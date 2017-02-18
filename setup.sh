@@ -27,26 +27,26 @@ fi
 #https://github.com/docker/compose/releases
 sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.1/docker-compose-$(uname -s)-$(uname -m)"
 sudo chmod 755 /usr/local/bin/docker-compose
-docker-compose -v
+echo "docker-compose success.  Version: \n$(docker-compose -v)"
 
-#SETUP WORK FLOW TOOLS
-sudo apt-get -y install git
-git config --global user.name "McNichol"
-git config --global user.email mcnichol.m@gmail.com
-git config --global core.editor "vim"
+#GIT AND SCM TOOLS
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/git/install.sh)"
 
-sudo apt-get -y install tig
+#ZSH ENVIRONMENT SETUP
+sh -c "~/workspace/modules/zsh/install.sh"
 
+sleep 5s
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+#TMUX SETUP
 sudo apt-get -y install tmux
 cp tmux.conf ~/.tmux.conf
 
+#VIM SETUP
 sudo apt-get -y install vim
 cp vimrc ~/.vimrc
 
-sudo apt-get -y install zsh
-cp zshrc ~/.zshrc
-
-#SETUP LANGUAGE AND ENVIRONMENT
+#JAVA SETUP
 sudo apt-get -y install openjdk-8-jdk
 git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
