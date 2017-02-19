@@ -33,7 +33,7 @@ echo "docker-compose success.  Version: \n$(docker-compose -v)"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/git/install.sh)"
 
 #ZSH ENVIRONMENT SETUP
-sh -c "~/workspace/modules/zsh/install.sh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/zsh/install.sh)"
 sleep 5s
 
 #TMUX SETUP
