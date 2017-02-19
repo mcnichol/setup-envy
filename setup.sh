@@ -2,6 +2,7 @@
 
 sudo apt-get -y update
 
+##############
 #SETUP DOCKER#
 ##############
 sudo apt-get install -y --no-install-recommends \
@@ -29,12 +30,19 @@ sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose
 sudo chmod 755 /usr/local/bin/docker-compose
 echo "docker-compose success.  Version: \n$(docker-compose -v)"
 
+MODULE_DIRECTORY=https://raw.githubusercontent.com/mcnichol/modules/master
+
 #GIT AND SCM TOOLS
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/git/install.sh)"
+sh -c "$(curl -fsSL $MODULE_DIRECTORY/git/install.sh)"
+#sh -c "../modules/git/install.sh"
+
+#SSH SETUP
+sh -c "$(curl -fsSL $MODULE_DIRECTORY/ssh/install.sh)"
+#sh -c "../modules/ssh/install.sh"
 
 #ZSH ENVIRONMENT SETUP
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/zsh/install.sh)"
-sleep 5s
+sh -c "$(curl -fsSL $MODULE_DIRECTORY/zsh/install.sh)"
+#sh -c "../modules/zsh/install.sh"
 
 #TMUX SETUP
 sudo apt-get -y install tmux
@@ -44,9 +52,9 @@ cp tmux.conf ~/.tmux.conf
 sudo apt-get -y install vim
 cp vimrc ~/.vimrc
 
-#JAVA SETUP
-sudo apt-get -y install openjdk-8-jdk
-git clone https://github.com/gcuisinier/jenv.git ~/.jenv
-echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(jenv init -)"' >> ~/.zshrc
+##JAVA SETUP
+#sudo apt-get -y install openjdk-8-jdk
+#git clone https://github.com/gcuisinier/jenv.git ~/.jenv
+#echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+#echo 'eval "$(jenv init -)"' >> ~/.zshrc
 
