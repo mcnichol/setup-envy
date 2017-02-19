@@ -34,9 +34,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mcnichol/modules/master/gi
 
 #ZSH ENVIRONMENT SETUP
 sh -c "~/workspace/modules/zsh/install.sh"
-
 sleep 5s
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 #TMUX SETUP
 sudo apt-get -y install tmux
