@@ -45,12 +45,12 @@ sh -c "$(curl -fsSL $MODULE_DIRECTORY/zsh/install.sh)"
 #sh -c "../modules/zsh/install.sh"
 
 #TMUX SETUP
-sudo apt-get -y install tmux
-cp tmux.conf ~/.tmux.conf
+#sh -c "$(curl -fsSL $MODULE_DIRECTORY/tmux/install.sh)"
+TMUX_CONFIG_URL="$(pwd)/config" sh -c "../modules/tmux/install.sh"
 
 #VIM SETUP
 sudo apt-get -y install vim
-cp vimrc ~/.vimrc
+cp config/vimrc ~/.vimrc
 
 ##JAVA SETUP
 #sudo apt-get -y install openjdk-8-jdk
