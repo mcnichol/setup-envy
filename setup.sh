@@ -30,7 +30,8 @@ sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose
 sudo chmod 755 /usr/local/bin/docker-compose
 echo "docker-compose success.  Version: \n$(docker-compose -v)"
 
-MODULE_DIRECTORY=https://raw.githubusercontent.com/mcnichol/modules/master
+MODULE_DIRECTORY="https://raw.githubusercontent.com/mcnichol/modules/master"
+MODULE_CONFIG_DIRECTORY="$(pwd)/config"
 
 #GIT AND SCM TOOLS
 sh -c "$(curl -fsSL $MODULE_DIRECTORY/git/install.sh)"
@@ -45,12 +46,12 @@ sh -c "$(curl -fsSL $MODULE_DIRECTORY/zsh/install.sh)"
 #sh -c "../modules/zsh/install.sh"
 
 #TMUX SETUP
-#sh -c "$(curl -fsSL $MODULE_DIRECTORY/tmux/install.sh)"
-TMUX_CONFIG_URL="$(pwd)/config" sh -c "../modules/tmux/install.sh"
+TMUX_CONFIG_URL=$MODULE_CONFIG_DIRECTORY sh -c "$(curl -fsSL $MODULE_DIRECTORY/tmux/install.sh)"
+#TMUX_CONFIG_URL=$MODULE_CONFIG_DIRECTORY sh -c "../modules/tmux/install.sh"
 
 #VIM SETUP
-sudo apt-get -y install vim
-cp config/vimrc ~/.vimrc
+VIM_CONFIG_URL=$MODULE_CONFIG_DIRECTORY sh -c "$(curl -fsSL $MODULE_DIRECTORY/vim/install.sh)"
+#VIM_CONFIG_URL=$MODULE_CONFIG_DIRECTORY sh -c "../modules/vim/install.sh"
 
 ##JAVA SETUP
 #sudo apt-get -y install openjdk-8-jdk
